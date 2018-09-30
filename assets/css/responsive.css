@@ -1,0 +1,22 @@
+@media all and (max-width: 768px){
+    .navbar-expand-md .navbar-nav .nav-item{
+        border-right: 0px;
+        padding: 5px 0;
+    }
+
+    .who-would-be{
+        margin-bottom: 24px;
+    }
+    .peace-section{
+        margin-bottom: 48px;
+    }
+    .luxoasis-form{
+        margin-bottom: 24px;
+    }
+    .footer .border-primary{
+        border: 0px !important;
+    }
+    .footer .copyright, .footer .contact{
+        text-align: center !important;
+    }
+}
