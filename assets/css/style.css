@@ -57,6 +57,7 @@ h1, h4{
 }
 .home-slider .slider-bg .slider-text{
     height: 550px;
+    padding-bottom: 20px;
 }
 
 /* Section Title */
@@ -72,6 +73,15 @@ h1, h4{
     margin-top: -32px;
 }
 
+/* Testimonial page  */
+.star-rating i.fa{
+    font-size: 22px;
+}
+.testimonial-user img{
+    width: 80px;
+    height: 80px;
+    border: 6px solid #E9E9E9;
+}
 /* Footer */
 .border-right {
 	border-right: 2px solid #dee2e6 !important;
