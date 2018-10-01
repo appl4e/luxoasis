@@ -1,3 +1,31 @@
+<?php 
+if(isset($_POST['submit'])){
+    if(empty($name)||empty($visitor_email)) 
+    {
+        $validate_error = "Name and email are mandatory!";        
+    }
+    $to = "appl4@gmail.com"; // this is your Email address
+
+    $from = "info@luxoasis.com"; // this is the sender's Email address
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $name . " " . $email . " wrote the following:" . "\n\n" . $_POST['message'];   
+    $subject = "Luxoasis Contact form submitted by". $name;
+    $headers = "From:" . $from;
+
+    $mail = mail($to,$subject,$message,$headers);
+
+    if($mail){
+        $success = "The mail has been sent successfully";
+    }
+    else{
+        $seccess = "The mail has not sent";
+    }
+    
+    // You can also use header('Location: thank_you.php'); to redirect to another page.
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,7 +100,7 @@
                             <a class="nav-link" href="testimonials.html">Testimonials</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="contact.php">Contact</a>
                             <span class="sr-only">(current)</span>
                         </li>
                     </ul>
@@ -107,18 +135,32 @@
             <div class="row bg-light py-4">
                 <div class="col-md-6 col-12 px-4">
                     <div class="form luxoasis-form">
-                        <div class="form-group">
-                            <input type="text" for="name" class="form-control" placeholder="Name">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" for="email" class="form-control" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="Message" id="" class="form-control" placeholder="Message"></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button class="btn btn-primary px-5">Send</button>
-                        </div>
+                        <form method="POST" action="contact.php">
+                            <div class="form-group">
+                                <input type="text" for="name" name="name" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" for="email" name="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <textarea  id="" name="message" class="form-control" placeholder="Message"></textarea>
+                            </div>
+                            <p class="my-3 text-danger">
+                                <?php
+                                    if(isset($validate_error)){
+                                        echo $validate_error;
+                                    }
+                                    if(isset($success)){
+                                        echo $success;
+                                    }
+                                    
+                                ?>
+                            </p>
+                            <div class="text-center">
+                                <button class="btn btn-primary px-5" type="submit" name="submit">Send</button>
+                            </div>
+                        </form>
+                        
                     </div>
                     
                 </div>
