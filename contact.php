@@ -1,22 +1,28 @@
 <?php 
 if(isset($_POST['submit'])){
-    if(empty($name)||empty($visitor_email)) 
-    {
-        $validate_error = "Name and email are mandatory!";        
-    }
-    $to = "appl4@gmail.com"; // this is your Email address
+    
+    $to = "info@luxoasis.com"; // this is your Email address
 
     $from = "info@luxoasis.com"; // this is the sender's Email address
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $message = $name . " " . $email . " wrote the following:" . "\n\n" . $_POST['message'];   
+    $message = $name . " " . $email . " wrote the following:" . "\r\n" . $_POST['message'];   
     $subject = "Luxoasis Contact form submitted by". $name;
-    $headers = "From:" . $from;
-
+    $headers = "From: " ."Luxoasis<info@luxoasis.com>" . "\r\n";
+	$headers .= "Reply-To: ". "no-reply@luxoasis.com" . "\r\n";
+	$headers .= "MIME-Version: 1.0\r\n";
+	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+    
+    if(empty($name)||empty($email)) 
+    {
+        $validate_error = "Name and email are mandatory!". $name . $email;        
+    }
+    
     $mail = mail($to,$subject,$message,$headers);
 
     if($mail){
         $success = "The mail has been sent successfully";
+        
     }
     else{
         $seccess = "The mail has not sent";
@@ -145,13 +151,13 @@ if(isset($_POST['submit'])){
                             <div class="form-group">
                                 <textarea  id="" name="message" class="form-control" placeholder="Message"></textarea>
                             </div>
-                            <p class="my-3 text-danger">
+                            
                                 <?php
                                     if(isset($validate_error)){
-                                        echo $validate_error;
+                                        echo '<p class="my-3 text-danger">'.$validate_error.'</p>';
                                     }
                                     if(isset($success)){
-                                        echo $success;
+                                        echo '<p class="my-3 text-success">'.$success.'</p>';
                                     }
                                     
                                 ?>
