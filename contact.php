@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $name . " " . $email . " wrote the following:" . "\r\n" . $_POST['message'];   
-    $subject = "Luxoasis Contact form submitted by". $name;
+    $subject = "Luxoasis Contact form submitted by ". $name;
     $headers = "From: " ."Luxoasis<info@luxoasis.com>" . "\r\n";
 	$headers .= "Reply-To: ". "no-reply@luxoasis.com" . "\r\n";
 	$headers .= "MIME-Version: 1.0\r\n";
@@ -66,6 +66,7 @@ if(isset($_POST['submit'])){
 
     <!-- CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/all.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 
@@ -209,9 +210,15 @@ if(isset($_POST['submit'])){
         </div>
     </div>
 
+    <!-- scrollTop Button -->
+    <div class='scrolltop'>
+      <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+    </div>
+
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/scrollTop.js"></script>
 
 </body>
 
