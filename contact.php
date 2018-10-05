@@ -77,8 +77,8 @@ if(isset($_POST['submit'])){
     <!-- Logo -->
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center py-3 my-1">
-                <img src="assets/images/logo.png" alt="LUXOASIS">
+            <div class="col-12 text-center py-3 my-1 logo">
+                <img src="assets/images/logo.svg" alt="LUXOASIS">
             </div>
         </div>
     </div>

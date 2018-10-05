@@ -49,6 +49,9 @@ h1, h4{
 .navbar-expand-md .navbar-nav .nav-item:last-child{
     border-right: 0px;
 }
+.logo img{
+    width: 260px;
+}
 
 /* Home slider */
 .home-slider .slider-bg{
