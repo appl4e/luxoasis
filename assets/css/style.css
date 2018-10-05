@@ -81,6 +81,11 @@ h1, h4{
     margin-top: -32px;
 }
 
+/* Benifits Page */
+.commandments p{
+    font-size: 18px;
+}
+
 /* Testimonial page  */
 .star-rating i.fa{
     font-size: 22px;
